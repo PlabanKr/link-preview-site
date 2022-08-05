@@ -1,3 +1,4 @@
+const cookieParser = require("cookie-parser");
 const express = require("express");
 const path = require("path");
 const routes = require("./route");
@@ -10,6 +11,9 @@ app.set("views", path.join(__dirname, "views"));
 
 // parse req.body for form-url-encoded data
 app.use(express.urlencoded({ extended: true }));
+
+// cookies
+app.use(cookieParser());
 
 // routes
 app.use("/", routes);
