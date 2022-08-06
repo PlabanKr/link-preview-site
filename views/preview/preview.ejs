@@ -4,17 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Preview - <%= data['title'] %></title>
 </head>
 <body>
-    <section>
-        <%= data['title'] %>
-        <br>
-        <%= data['description'] %>
-        <br>
-        <%= data['favicons'][0] %>
-        <br>
-        <%= data['images'] %>
+    <section class="preview">
+        <div class="home">
+            <a href="/">
+                <i class="fa-solid fa-arrow-left-long"></i>
+            </a>
+        </div>
+        <div class="preview-card">
+            <img src=<%= data["images"] %> alt=<%= data["title"] %>>
+            <p class="site-name">
+                <%= data["siteName"] %>
+            </p>
+            <p class="title">
+                <%= data["title"] %>
+            </p>
+            <p class="description">
+                <%= data['description'] %>
+            </p>
+        </div>
+        <div class="more-data-container">
+            <button id="btn-more-info">More Info  <i class="fa-solid fa-angle-down"></i></button>
+            <div class="more-data" id="more-data">
+                <p><strong>Media Type:</strong> <%= data["mediaType"] %></p>
+                <p><strong>Content Type:</strong> <%= data["contentType"] %></p>
+                <p><strong>Favicon:</strong></p>
+                <img src=<%= data["favicons"][0] %> alt="favicon of the site">
+            </div>
+        </div>
     </section>
+
+    <script>
+        const btn = document.getElementById("btn-more-info");
+        const moreData = document.getElementById("more-data");
+
+        btn.addEventListener("click", (event) => {
+            if(!moreData.classList.contains("show-data")) {
+                moreData.classList.add("show-data");
+            } else {
+                moreData.classList.remove("show-data");
+            }
+        });
+    </script>
 </body>
 </html>

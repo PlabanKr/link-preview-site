@@ -2,7 +2,8 @@
 
 :root {
     --font: 'Lato', sans-serif;
-    --main-col: #b53f1b;
+    --main-col: #c93b1e;
+    --card-bg: #f1f1f1;
 }
 
 * {
@@ -10,4 +11,179 @@
     margin: 0;
     box-sizing: border-box;
     font-family: var(--font);
+}
+
+body {
+    min-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Home Page */
+
+section.main {
+    margin: 0 10rem;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.main > h1 {
+    font-size: 4rem;
+    margin: 1.2rem;
+}
+
+section.main > h1 > span {
+    color: var(--main-col);
+}
+
+section.main > form {
+    display: flex;
+    flex-direction: column;
+}
+
+section.main > form > #link {
+    margin: 1rem 0rem;
+    padding: 1rem 2rem;
+    width: 40rem;
+}
+
+section.main > form > button {
+    font-family: inherit;
+    padding: 0.5rem;
+    background-color: var(--main-col);
+    color: white;
+    font-weight: 300;
+    border: none;
+}
+
+section.main > form > button:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    section.main > h1 {
+        width: 20rem;
+        font-size: 2rem;
+        margin: 0.8rem;
+        text-align: center;
+    }
+
+    section.main > form > #link {
+        margin: 1rem 0rem;
+        padding: 1rem 2rem;
+        width: 20rem;
+    }
+}
+
+/* Preview Page */
+
+section.preview {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+div.home > a {
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    color: grey;
+    font-size: 1.5rem;
+}
+
+div.home > a:hover {
+    color: black;
+}
+
+div.preview-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    width: min-content;
+}
+
+div.preview-card > img {
+    width: 35rem;
+}
+
+div.preview-card > p.site-name {
+    width: 35rem;
+    margin: 0.5rem 0;
+    color: grey;
+}
+
+div.preview-card > p.title {
+    width: 35rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+div.preview-card > p.description {
+    width: 35rem;
+    margin: 1rem 0rem;
+}
+
+div.more-data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.more-data-container > button {
+    font-family: inherit;
+    padding: 0.6rem 1rem;
+    background-color: var(--main-col);
+    color: white;
+    font-weight: 300;
+    border: none;
+    margin: 1rem;
+}
+
+div.more-data-container > button:hover {
+    cursor: pointer;
+}
+
+div.more-data {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 40rem;
+    opacity: 0;
+}
+
+div.more-data > p {
+    margin: 0.5rem 0rem;
+}
+
+.show-data {
+    opacity: 1!important;
+}
+
+@media (max-width: 600px) {
+    div.home > a {
+        position: absolute;
+        top: 4%;
+        left: 4%;
+        color: grey;
+        font-size: 1.5rem;
+    }
+
+    section.preview {
+        padding-top: 5rem;
+    }
+
+    div.preview-card > img,
+    div.preview-card > p.title,
+    div.preview-card > p.site-name, 
+    div.preview-card > p.description
+    {
+        width: 15rem;
+    }
+
+    div.more-data {
+        width: 20rem;
+    }
 }
