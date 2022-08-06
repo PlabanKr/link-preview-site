@@ -9,6 +9,9 @@ app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+// use static assets
+app.use(express.static(__dirname + "/public"));
+
 // parse req.body for form-url-encoded data
 app.use(express.urlencoded({ extended: true }));
 
