@@ -16,6 +16,11 @@ router.get("/preview", (req, res) => {
 
 router.post("/get-data", async (req, res) => {
     const { link } = req.body;
+    if(link.length === 0) {
+        
+        res.redirect("/");
+        return;
+    }
     const preview = await getLinkPreview(link);
     res.cookie("data", preview, { httpOnly: true });
     res.redirect("/preview");
