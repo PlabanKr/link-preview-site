@@ -17,7 +17,7 @@ router.get("/preview", (req, res) => {
 router.post("/get-data", async (req, res) => {
     const { link } = req.body;
     if(link.length === 0) {
-        
+        // TODO: use flash and regex for better error handling
         res.redirect("/");
         return;
     }
