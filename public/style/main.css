@@ -3,6 +3,7 @@
 :root {
     --font: 'Lato', sans-serif;
     --main-col: #c93b1e;
+    --main-col-sa: #e65b3f;
     --card-bg: #f1f1f1;
 }
 
@@ -19,6 +20,10 @@ body {
 }
 
 /* Home Page */
+
+body.mainpage {
+    overflow-y: hidden;
+}
 
 section.main {
     margin: 0 10rem;
@@ -61,6 +66,58 @@ section.main > form > button:hover {
     cursor: pointer;
 }
 
+section.blobs {
+    position: relative;
+}
+
+section.blobs > div.blob1 {
+    position: absolute;
+    top: -17rem;
+    right: -2rem;
+    z-index: -1;
+    animation: float1 8s ease-out infinite;
+}
+
+section.blobs > div.blob1 > svg {
+    width: 350px;
+}
+
+section.blobs > div.blob2 {
+    position: absolute;
+    top: 10rem;
+    left: -10rem;
+    z-index: -1;
+    animation: float 18s ease-out infinite;
+}
+
+section.blobs > div.blob2 > svg {
+    width: 500px;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(100px, -40px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes float1 {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
 @media (max-width: 600px) {
     section.main > h1 {
         width: 20rem;
@@ -90,12 +147,21 @@ div.home > a {
     position: absolute;
     top: 6%;
     left: 6%;
-    color: grey;
+    color: white;
     font-size: 1.5rem;
 }
 
 div.home > a:hover {
-    color: black;
+    color: #e6e6e6;
+}
+
+div.home > svg {
+    position: absolute;
+    top: -10rem;
+    left: -10rem;
+    width: 500px;
+    z-index: -1;
+    animation: rotate 20s ease-in-out infinite;
 }
 
 div.preview-card {
@@ -160,6 +226,15 @@ div.more-data > p {
 
 .show-data {
     opacity: 1!important;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 600px) {
